@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ruhie, one question</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Dancing+Script:wght@500;700&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#3c0f1f;--deep:#260a15;--blush:#f7dde2;--rose:#c97b92;--gold:#cf9f4e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--deep);color:var(--blush);font-family:'Quicksand',sans-serif;overflow-x:hidden}
+section{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5rem 1.5rem;position:relative;overflow:hidden}
+section:nth-of-type(odd){background:radial-gradient(ellipse at 50% 20%,var(--wine),var(--deep) 75%)}
+.script{font-family:'Dancing Script',cursive;color:var(--gold)}
+.disp{font-family:'Cormorant Garamond',serif;font-style:italic}
+.eyebrow{letter-spacing:.35em;text-transform:uppercase;font-size:.7rem;font-weight:600;opacity:.6;margin-bottom:1rem}
+h1{font-size:clamp(3rem,11vw,7rem);font-weight:600;line-height:1;text-shadow:0 0 40px rgba(207,159,78,.4);animation:glow 4s ease-in-out infinite}
+@keyframes glow{50%{text-shadow:0 0 60px rgba(207,159,78,.65)}}
+h2{font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:600;margin-bottom:1.5rem}
+p.line{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2.6vw,1.6rem);line-height:1.8;max-width:34ch;margin:0 auto 1.2rem}
+.rv{opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s ease}
+.rv.in{opacity:1;transform:none}
+.cue{position:absolute;bottom:2rem;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rose);opacity:.8}
+.hearts{position:fixed;inset:0;pointer-events:none;z-index:1}
+.hp{position:absolute;bottom:-40px;color:var(--rose);opacity:0;animation:up linear forwards}
+@keyframes up{10%{opacity:.7}100%{opacity:0;transform:translateY(-115vh) translateX(var(--d,20px)) rotate(200deg)}}
+section>*{position:relative;z-index:2}
+.sher{max-width:36ch;margin:0 auto}
+.sher .r{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;line-height:1.9;color:var(--gold);display:block}
+.sher .t{font-size:.8rem;color:var(--rose);display:block;margin-top:.6rem}
+.reasons{display:grid;gap:1rem;max-width:560px;width:100%;text-align:left}
+.reason{background:rgba(247,221,226,.07);border:1px solid rgba(207,159,78,.3);border-radius:14px;padding:1.1rem 1.3rem;font-family:'Cormorant Garamond',serif;font-size:1.2rem;line-height:1.6}
+.reason b{color:var(--gold);font-weight:600}
+.btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:2.2rem;min-height:60px;align-items:center}
+button.b{font-family:'Quicksand',sans-serif;font-weight:600;font-size:1rem;border-radius:999px;padding:.9rem 2.2rem;cursor:pointer;border:1.5px solid var(--gold);transition:transform .25s}
+#yes{background:var(--gold);color:var(--deep);font-size:1.15rem;box-shadow:0 0 30px rgba(207,159,78,.5)}
+#yes:hover{transform:scale(1.08)}
+#no{background:transparent;color:var(--blush)}
+.art{width:min(300px,76vw);height:auto;display:block;margin-top:1.6rem;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+#pb{position:fixed;bottom:0;left:50%;width:150px;transform:translate(-50%,110%);transition:transform .4s cubic-bezier(.3,1.6,.5,1);z-index:160;pointer-events:none}
+#pb.show{transform:translate(-50%,6%)}
+.tz{display:grid;gap:1rem;max-width:620px;width:100%}
+.tc{display:flex;align-items:center;gap:1rem;text-align:left;background:rgba(247,221,226,.07);border:1px solid rgba(207,159,78,.3);border-radius:16px;padding:.9rem 1.1rem}
+.tc:nth-child(even){flex-direction:row-reverse;text-align:right}
+.tc svg{width:92px;flex:none;height:auto;animation:bob 3s ease-in-out infinite}
+.tc p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;line-height:1.55}
+.tc b{color:var(--gold)}
+.plea{position:fixed;z-index:150;background:var(--blush);color:var(--wine);font-family:'Quicksand',sans-serif;font-weight:600;padding:.7rem 1.1rem;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.4);font-size:.95rem;pointer-events:none;transform:rotate(var(--r,0deg));animation:pl 2.6s ease forwards;max-width:70vw}
+@keyframes pl{0%{opacity:0;transform:scale(.3) rotate(var(--r))}12%{opacity:1;transform:scale(1.1) rotate(var(--r))}20%{transform:scale(1) rotate(var(--r))}85%{opacity:1}100%{opacity:0;transform:translateY(-30px) scale(.9) rotate(var(--r))}}
+#win{position:fixed;inset:0;background:radial-gradient(ellipse at 50% 40%,var(--wine),var(--deep));z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;opacity:0;pointer-events:none;transition:opacity 1s}
+#win.show{opacity:1;pointer-events:auto}
+#win .big{font-size:clamp(2.6rem,9vw,5rem)}
+#win a{margin-top:2rem;color:var(--gold);font-size:.8rem;letter-spacing:.15em;text-transform:uppercase}
+.cf{position:fixed;top:-10px;width:8px;height:14px;z-index:200;pointer-events:none;animation:fall 3s ease-in forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(600deg);opacity:.4}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="bear" viewBox="0 0 120 130"><circle cx="30" cy="28" r="14" fill="currentColor"/><circle cx="90" cy="28" r="14" fill="currentColor"/><circle cx="30" cy="29" r="7" fill="#f4c6ca"/><circle cx="90" cy="29" r="7" fill="#f4c6ca"/><ellipse cx="60" cy="103" rx="32" ry="26" fill="currentColor"/><circle cx="60" cy="58" r="38" fill="currentColor"/><ellipse cx="60" cy="73" rx="16" ry="12" fill="#fbefe3"/><ellipse cx="60" cy="67" rx="5" ry="3.5" fill="#3c0f1f"/><circle cx="38" cy="68" r="6" fill="#f19aa8" opacity=".6"/><circle cx="82" cy="68" r="6" fill="#f19aa8" opacity=".6"/></symbol>
+<symbol id="fh" viewBox="0 0 120 130"><g stroke="#2c1219" stroke-width="3.5" fill="none" stroke-linecap="round"><path d="M40 54q6-8 12 0M68 54q6-8 12 0"/><path d="M60 70v4M53 76q7 6 14 0" stroke="#3c0f1f" stroke-width="2.5"/></g></symbol>
+<symbol id="fp" viewBox="0 0 120 130"><circle cx="46" cy="54" r="9" fill="#2c1219"/><circle cx="74" cy="54" r="9" fill="#2c1219"/><circle cx="43" cy="50" r="3.5" fill="#fff"/><circle cx="71" cy="50" r="3.5" fill="#fff"/><circle cx="49" cy="58" r="1.6" fill="#fff"/><circle cx="77" cy="58" r="1.6" fill="#fff"/><path d="M34 42l14 4M86 42l-14 4M54 80q6-5 12 0" stroke="#2c1219" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M38 64q-4 8 0 10q4-2 0-10z" fill="#8fd3ff"/></symbol>
+<symbol id="hrt" viewBox="0 0 32 30"><path d="M16 28C-4 14 3 0 16 9 29 0 36 14 16 28z" fill="currentColor"/></symbol>
+<symbol id="pair" viewBox="0 0 260 160"><g transform="rotate(-5 70 110)"><use href="#bear" x="12" y="28" width="120" height="130" style="color:#c98f6b"/><use href="#fh" x="12" y="28" width="120" height="130"/></g><g transform="rotate(5 190 110)"><use href="#bear" x="128" y="28" width="120" height="130" style="color:#eaa3b6"/><use href="#fh" x="128" y="28" width="120" height="130"/></g><use href="#hrt" x="112" y="0" width="36" height="34" style="color:#e5566f"/><use href="#hrt" x="70" y="8" width="16" height="15" style="color:#c97b92"/><use href="#hrt" x="176" y="10" width="14" height="13" style="color:#cf9f4e"/></symbol>
+<symbol id="pbear" viewBox="0 0 120 150"><use href="#bear" width="120" height="130" style="color:#c98f6b"/><use href="#fp" width="120" height="130"/><path d="M60 148V112" stroke="#4f8a4f" stroke-width="3"/><ellipse cx="48" cy="130" rx="9" ry="4" fill="#5fa05f" transform="rotate(-25 48 130)"/><circle cx="60" cy="108" r="12" fill="#d63a5a"/><path d="M54 106q6-8 12 0q-4 8-10 3" stroke="#8f2735" stroke-width="2" fill="none"/><circle cx="38" cy="112" r="10" fill="#c98f6b"/><circle cx="82" cy="112" r="10" fill="#c98f6b"/></symbol>
+<symbol id="chai" viewBox="0 0 120 100"><ellipse cx="55" cy="90" rx="42" ry="8" fill="#e6c9c2"/><path d="M25 40h60v22a30 28 0 0 1-60 0z" fill="#fbefe3"/><path d="M85 46h8a10 10 0 0 1 0 20h-9" stroke="#fbefe3" stroke-width="5" fill="none"/><ellipse cx="55" cy="40" rx="30" ry="6" fill="#b9783f"/><use href="#hrt" x="44" y="6" width="22" height="20" style="color:#e5566f"/><circle cx="45" cy="62" r="2.6" fill="#2c1219"/><circle cx="65" cy="62" r="2.6" fill="#2c1219"/><path d="M50 68q5 5 10 0" stroke="#2c1219" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="38" cy="68" r="4" fill="#f19aa8" opacity=".6"/><circle cx="72" cy="68" r="4" fill="#f19aa8" opacity=".6"/></symbol>
+<symbol id="s2" viewBox="0 0 120 130"><use href="#bear" width="120" height="130" style="color:#eaa3b6"/><circle cx="46" cy="56" r="4.5" fill="#2c1219"/><circle cx="74" cy="56" r="4.5" fill="#2c1219"/><path d="M34 44l16 7M86 44l-16 7M52 83q8-6 16 0" stroke="#2c1219" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M92 14l10 10M102 14l-10 10" stroke="#d63a5a" stroke-width="3.5" stroke-linecap="round"/></symbol>
+<symbol id="s5" viewBox="0 0 120 130"><use href="#bear" width="120" height="130" style="color:#c98f6b"/><circle cx="46" cy="54" r="9" fill="#fff" stroke="#2c1219" stroke-width="2"/><circle cx="74" cy="54" r="9" fill="#fff" stroke="#2c1219" stroke-width="2"/><circle cx="46" cy="55" r="2.6" fill="#2c1219"/><circle cx="74" cy="55" r="2.6" fill="#2c1219"/><path d="M36 42l12-3M84 42l-12-3M50 82q5-5 10 0t10 0" stroke="#2c1219" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M96 34q-4 8 0 10q4-2 0-10z" fill="#8fd3ff"/><path d="M6 60l-6 0M8 72l-7 2M6 48l-6-3" stroke="#cf9f4e" stroke-width="2.5" stroke-linecap="round"/></symbol>
+<symbol id="s6" viewBox="0 0 120 130"><use href="#bear" width="120" height="130" style="color:#eaa3b6"/><circle cx="46" cy="55" r="4.5" fill="#2c1219"/><circle cx="74" cy="55" r="4.5" fill="#2c1219"/><path d="M48 76h24" stroke="#2c1219" stroke-width="3" stroke-linecap="round"/><path d="M52 72v8M58 72v8M64 72v8M70 72v8" stroke="#cf9f4e" stroke-width="2"/><path d="M88 20q6-8 12 0t12 0" stroke="#cf9f4e" stroke-width="2.5" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="s7" viewBox="0 0 120 130"><use href="#bear" width="120" height="130" style="color:#c98f6b"/><circle cx="36" cy="68" r="8" fill="#f06a85" opacity=".75"/><circle cx="84" cy="68" r="8" fill="#f06a85" opacity=".75"/><path d="M40 54q6 7 12 0M68 54q6 7 12 0" stroke="#2c1219" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M53 76q7 6 14 0" stroke="#3c0f1f" stroke-width="2.5" fill="none" stroke-linecap="round"/><use href="#hrt" x="92" y="6" width="18" height="17" style="color:#e5566f"/><use href="#hrt" x="8" y="14" width="13" height="12" style="color:#c97b92"/><use href="#hrt" x="100" y="34" width="11" height="10" style="color:#cf9f4e"/></symbol>
+</defs></svg>
+<div class="hearts" id="hearts"></div>
+
+<section>
+  <p class="eyebrow">for Ruhie, only</p>
+  <span class="script" style="font-size:clamp(1.5rem,4vw,2.2rem)">I have something to ask you,</span>
+  <h1 class="disp">Ruhie</h1>
+  <p class="line" style="margin-top:1.4rem;opacity:.85">Scroll kijiye, aaram se. Poora padhiye, warna chhodunga nahi 😜</p>
+  <svg class="art" viewBox="0 0 260 160"><use href="#pair"/></svg>
+  <div class="cue">scroll</div>
+</section>
+
+<section>
+  <p class="line rv">I'm not great at saying big things out loud.</p>
+  <p class="line rv">So I built this instead, because it lets me say all of it without interrupting myself.</p>
+  <p class="line rv">I've made mistakes, and I've said sorry in more ways than one. This is my attempt to say something better than sorry.</p>
+  <svg class="art rv" style="width:min(170px,50vw)" viewBox="0 0 120 100"><use href="#chai"/></svg>
+  <p class="line rv" style="margin-top:1.2rem">Waise sorry bolna mujhe aata nahi, par aapke liye roz practice kar raha hoon 😅</p>
+</section>
+
+<section>
+  <p class="eyebrow">a few reasons</p>
+  <h2 class="disp">Why it's you</h2>
+  <div class="reasons">
+    <div class="reason rv"><b>Your laugh.</b> It's my favourite sound, loud and unfiltered, and it's always right on time.</div>
+    <div class="reason rv"><b>Your patience.</b> You make even the worst days softer, and I don't think you know how much that holds me up.</div>
+    <div class="reason rv"><b>Your "but why".</b> You ask it like a curious kid, and it is always the smartest question in the room.</div>
+    <div class="reason rv"><b>Your warmth.</b> You make cold chai and colder days feel okay.</div>
+    <div class="reason rv"><b>Your heart.</b> You give without checking if it will come back. I want to be the one who gives it back, every time.</div>
+  </div>
+</section>
+
+<section>
+  <p class="eyebrow">ab thodi tangkheechai 😜</p>
+  <h2 class="disp">Aapke Nakhre</h2>
+  <div class="tz">
+    <div class="tc rv"><svg viewBox="0 0 120 130"><use href="#s5"/></svg><p>Aap bolti hain <b>“Muh tod dungi!”</b> aur main sach mein aapse darta hoon 😨</p></div>
+    <div class="tc rv"><svg viewBox="0 0 120 130"><use href="#s2"/></svg><p>Jab aap bolti hain <b>“Kuch nahi hua”</b>, matlab sab kuch hua hai. Main decode karna seekh raha hoon, par abhi bhi fail ho jata hoon 😅</p></div>
+    <div class="tc rv"><svg viewBox="0 0 120 130"><use href="#s6"/></svg><p>Jab aap bolti hain <b>“Chup”</b>, toh main idhar-udhar ki baat bhi nahi kar paata. Zip band, bas 🤐</p></div>
+    <div class="tc rv"><svg viewBox="0 0 120 130"><use href="#s7"/></svg><p>Aapki achanak wali <b>kisses</b> se main blush karne lagta hoon, aur bhool jata hoon ki kya bolna tha 🙈</p></div>
+  </div>
+  <p class="line rv" style="margin-top:2rem">Inn sab nakhron ke saath hi toh aap <i>meri Ruhie</i> hain ♥</p>
+</section>
+
+<section>
+  <div class="sher rv">
+    <span class="r">aap aayin to lagaa, safar ka matlab mil gaya,<br>ab har raasta bas aapki taraf mudta hai.</span>
+    <span class="t">you came, and the journey finally made sense. Now every road I take bends toward you.</span>
+  </div>
+  <p class="line rv" style="margin-top:2.5rem">Mujhe perfect life nahi chahiye. Bas ek normal si chahiye, jisme aap hain.</p>
+  <p class="line rv">Mornings, bad days, good news, silly arguments about nothing, and you still choosing to stay.</p>
+</section>
+
+<section id="ask">
+  <svg class="art" style="width:min(150px,44vw);margin:0 0 1rem" viewBox="0 0 120 150"><use href="#pbear"/></svg>
+  <p class="eyebrow">the question</p>
+  <h1 class="disp" style="font-size:clamp(2.4rem,8vw,5rem)">Ruhie,<br>aap meri banengi?</h1>
+  <p class="line" style="margin-top:1.4rem">Aaj, kal, aur jitne saal mere paas bache hain, sab mein. Waise mana karne ka option sirf dikhane ke liye hai 😌</p>
+  <div class="btns" id="btns">
+    <button class="b" id="yes">Haan ♥</button>
+    <button class="b" id="no">Sochne do…</button>
+  </div>
+  <p class="script" style="margin-top:2.5rem;font-size:1.6rem">— your Abdullah</p>
+</section>
+
+<div id="win">
+  <svg class="art" viewBox="0 0 260 160"><use href="#pair"/></svg>
+  <span class="script big" style="margin-top:1rem">Usne haan bola!</span>
+  <p class="line disp" style="margin-top:1.4rem">Mujhe pata tha aap maan jayengi 😎<br>Ab aap wapas nahi le sakti, screenshot le liya hai! ♥</p>
+</div>
+
+<svg id="pb" viewBox="0 0 120 150"><use href="#pbear"/></svg>
+<script>
+const hf=document.getElementById('hearts');
+function heart(){const h=document.createElement('div');h.className='hp';h.textContent='♥';h.style.left=Math.random()*100+'%';h.style.fontSize=(.7+Math.random()*1.1)+'rem';h.style.setProperty('--d',(Math.random()*60-30)+'px');const d=8+Math.random()*6;h.style.animationDuration=d+'s';hf.appendChild(h);setTimeout(()=>h.remove(),d*1000)}
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){setInterval(heart,1400);for(let i=0;i<4;i++)setTimeout(heart,i*700)}
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.3});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+const no=document.getElementById('no'),yes=document.getElementById('yes');
+const msgs=['Sochne do…','Arre, aap bahut slow hain 😜','Hehe, phir try kijiye','Pakad ke dikhaiye','Haan bol dijiye na, aasan hai ♥'];
+let n=0,scale=1,tries=0;
+function place(){
+  const w=no.offsetWidth,h=no.offsetHeight,pad=12;
+  const yr=yes.getBoundingClientRect();
+  let x,y,k=0;
+  do{x=pad+Math.random()*(innerWidth-w-pad*2);y=pad+Math.random()*(innerHeight-h-pad*2);k++}
+  while(k<30&&x<yr.right+20&&x+w>yr.left-20&&y<yr.bottom+20&&y+h>yr.top-20);
+  no.style.position='fixed';no.style.zIndex=50;no.style.transition='left .25s,top .25s';
+  no.style.left=x+'px';no.style.top=y+'px';
+}
+function dodge(e){
+  if(e&&e.cancelable)e.preventDefault();
+  n++;no.textContent=msgs[Math.min(n,msgs.length-1)];
+  scale=Math.min(scale+.12,1.8);yes.style.transform='scale('+scale+')';
+  place();
+}
+no.addEventListener('mouseenter',dodge);
+document.addEventListener('mousemove',e=>{
+  const r=no.getBoundingClientRect();
+  const cx=r.left+r.width/2,cy=r.top+r.height/2;
+  if(Math.hypot(e.clientX-cx,e.clientY-cy)<95)dodge();
+});
+no.addEventListener('touchstart',e=>{ if(n<6)dodge(e); },{passive:false});
+
+const pleas=['pleaseee na 🥺','maan jaiye na ♥','nakhre mat kijiye 🥹','chai pilaunga ☕','bas ek chhoti si haan?','Ruhie pleaseee 🥺','pakka sorry bolunga 🥺','dil toot jayega 💔','main achha bacha banunga','haan bol dijiye na pleaseee'];
+function pop(i){
+  const p=document.createElement('div');
+  p.className='plea';
+  p.textContent=pleas[i%pleas.length];
+  p.style.left=(8+Math.random()*(100-40))+'%';
+  p.style.top=(10+Math.random()*75)+'%';
+  p.style.setProperty('--r',(Math.random()*16-8)+'deg');
+  document.body.appendChild(p);
+  setTimeout(()=>p.remove(),2600);
+}
+no.addEventListener('click',()=>{
+  tries++;
+  const pb=document.getElementById('pb');pb.classList.add('show');clearTimeout(window._pt);window._pt=setTimeout(()=>pb.classList.remove('show'),3000);
+  for(let i=0;i<9;i++)setTimeout(()=>pop(Math.floor(Math.random()*20)),i*260);
+  yes.style.transform='scale('+(scale=Math.min(scale+.25,2))+')';
+  no.textContent='Haan bol dijiye na 🥺';
+  place();
+});
+
+yes.addEventListener('click',()=>{
+  const cols=['#cf9f4e','#c97b92','#f7dde2','#7a2c3d'];
+  for(let i=0;i<110;i++){const c=document.createElement('div');c.className='cf';c.style.left=Math.random()*100+'%';c.style.background=cols[i%4];c.style.animationDelay=Math.random()*.8+'s';c.style.borderRadius=Math.random()>.5?'50%':'2px';document.body.appendChild(c);setTimeout(()=>c.remove(),5000)}
+  document.getElementById('win').classList.add('show');
+});
+</script>
+</body>
+</html>
